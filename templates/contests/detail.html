@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h5 style="margin-top:15px">{{ contest.name }}</h5>
+<table class="table table-bordered" style="font-size: 13px;margin-top:15px">
+    <thead>
+    <tr>
+        <th scope="col">Problem Code</th>
+        <th scope="col">Problem Name</th>
+        <th scope="col">Solved</th>
+        <th scope="col">Submit</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in ex %}
+    <tr>
+        <td>{{ item.code }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.solved }}</td>
+        <td><a href="/exercise/{{item.id}}">Submit</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

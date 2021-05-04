@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table table-bordered" style="font-size: 13px;margin-top:15px">
+  <thead>
+    <tr  style="text-align: center">
+      <th scope="col"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Contest type</th>
+      <th scope="col">description</th>
+      <th scope="col">Start</th>
+      <th scope="col">Length</th>
+      <th scope="col">Status</th>
+      <th scope="col">Participant</th>
+    </tr>
+  </thead>
+{{ user.is_admin }}
+  <tbody style="text-align: center">
+    {% for contest in list_contest %}
+    <tr >
+      <th scope="row">{{forloop.counter}}</th>
+      <td>
+        <a href="/contest/{{contest.id}}/">
+          {{contest.name}}
+        </a> </td>
+      <td>{{contest.contest_type}}</td>
+      <td>{{contest.description}}</td>
+      <td>{{contest.start.date}}</td>
+      <td>{{contest.length}}</td>
+      <td>{{contest.get_status}}</td>
+      <td>{{contest.participant}}</td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}

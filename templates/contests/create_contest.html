@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-center">
+    <form action="" method="POST" >
+        {% csrf_token %}
+        <h3 style="margin-right:auto; margin-left:auto">Create New Contest AI</h3>
+        <table class="table" style="font-size: 13px;margin-top:15px">
+            <tr>
+                <td scope="row"> Contest Name </td>
+                <td> <input type="text" name="name" maxlength="256" placeholder="ICPC Programing 2" required id="id_name"> </td>
+            <tr>
+                <td> Contest Type</td>
+                <td> <input type="text" name="contest_type" maxlength="20" placeholder="ICPC" required id="id_contest_type"> </td>
+            </tr>
+            <tr>
+                <td> Date published</td>
+                <td> <input type="text" name="start" placeholder="2021-05-03 19:00:00"  required id="id_start"> </td>
+            </tr>
+            <tr>
+                <td> Length (s) </td>
+                <td> <input type="text" name="length" placeholder="7200" required id="id_length"> </td>
+            </tr>
+            <tr>
+                <td> Description </td>
+                <td> <textarea name="description" cols="40" rows="10" placeholder="Write something" required id="id_description"></textarea> </td>
+            </tr>
+            <tr>
+                <td> Participant </td>
+                <td> <input type="number" name="participant" placeholder="200" required id="id_participant"> </td>
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-primary">Tạo mới</button>
+    </form>
+</div>
+{% endblock %}

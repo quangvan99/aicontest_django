@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block css %} {% include './notifys.css' %} {% endblock %}
+{% block content %}
+<div>
+    <div class="title">
+        {{notifys.title}}
+    </div>
+    <div class="content">
+        <pre>{{notifys.content}}</pre>
+    </div>
+        <small>{{notifys.pub_date}}</small>
+    </div>
+</div>
+{% endblock %}

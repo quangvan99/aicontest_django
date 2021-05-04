@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block css %} {% include './index.css' %} {% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row card-body ">
+    <div class="col-8">
+    {% for notify in notifies %}
+      <div id="pageContent">
+        <div class="entry">
+          <div class="title">
+            <a href="/notifys/{{notify.id}}/">{{ notify.title }}</a>
+          </div>
+          <div class="content">
+            <p class="mb-1">{{ notify.content }}</p>
+          </div>
+          <div>
+              <small>{{ notify.pub_date }}</small>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="col-4">
+    <div class="tm-box-right">
+      <div class="tm-box-right-header">
+        New Contest
+      </div>
+      <div class="tm-box-right-body">
+        <ul class="problem-list">
+          {% for contest in list_contest %}
+          <li>
+            <a href="/contest/{{contest.id}}/">{{contest.name}} </a>
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="tm-box-right">
+      <div class="tm-box-right-header">
+        Top Coders
+      </div>
+      <div class="tm-box-right-body">
+        <ul class="problem-list">
+          {% for user in list_user %}
+          <li>
+            {{user.user_name}}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="tm-box-right">
+      <div class="tm-box-right-header">
+        Recent Actions
+      </div>
+      <div class="tm-box-right-body">
+        <ul class="problem-list">
+          {% for notify in notifies %}
+          <li>
+            <a href="/notifys/{{notify.id}}/">{{ notify.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</div>
+{% endblock %}
